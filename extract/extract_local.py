@@ -20,6 +20,14 @@ def xlsx_to_df(xlsx_path):
     else:
         return None  
 
+# Extract from JSON to a DF
+def json_to_df(json_path):
+    
+    if is_exists_file(json_path):
+        return  pd.read_json(json_path)
+        
+    else:
+        return None  
 
 # is there an file?
 def is_exists_file(file_path):
