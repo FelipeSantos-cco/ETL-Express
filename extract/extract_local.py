@@ -1,6 +1,26 @@
 import pandas as pd
 import os
 
+def controller(file):
+    if is_exists_file(file):
+        extension = os.path.splitext(file)
+        extension = extension[1]
+    
+        if extension == ".csv":
+            return csv_to_df(file)
+        
+        elif extension == ".xlsx":
+            return xlsx_to_df(file)
+        
+        elif extension == ".json":
+            return json_to_df(file)
+        
+        else:
+            print("[!] File Not Supported")
+
+    else:
+        return None
+
 # Extract from CSV to a DF
 def csv_to_df(csv_path):
 

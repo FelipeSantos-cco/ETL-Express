@@ -1,4 +1,5 @@
 import argparse
+from extract.extract_local import controller
 
 def main():
 
@@ -20,13 +21,8 @@ def main():
 
     args = parser.parse_args()
 
-    if getattr(args, "extract-local"):
-        print(args.extract_local)
-    
-    else:
-        print("Teste")
-        print(args.extract_local)
-
+    if getattr(args, "file", None):
+        df = controller(args.file)
 
 if __name__ == "__main__":
     main()
